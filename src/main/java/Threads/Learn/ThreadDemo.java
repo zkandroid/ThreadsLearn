@@ -1,5 +1,8 @@
 package Threads.Learn;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Java中实现多线程有两种方法：继承Thread类、实现Runnable接口，在程序开发中只要是多线程，肯定永远以实现Runnable接口为主，
  * 因为实现Runnable接口相比继承Thread类有如下优势：1、可以避免由于Java的单继承特性而带来的局限；
@@ -23,10 +26,12 @@ class MyThread extends Thread{
 
 class MyRunnable implements Runnable{  
     private int ticket = 5;  
+    private  static Map<Integer, String> maptest = new HashMap<Integer, String>();
     public void run(){ 
     	synchronized (this) {//不加同步锁的话,可能会发生线程不安全,因为下面开了三个线程共同执行这个代码块
-    		for (int i=0;i<10;i++)  
+    		for (int i=0;i<100;i++)  
             {  
+    			maptest.put(i, ":"+i);
                 if(ticket > 0){  
                     System.out.println(Thread.currentThread().getName()+" Runnable ticket = " + ticket--);  
                 }  
@@ -37,11 +42,14 @@ class MyRunnable implements Runnable{
 }  
   
 public class ThreadDemo{  
-    public static void main(String[] args){  
+	
+	
+    public static void main(String[] args){
+    	/*
         new MyThread().start();  
         new MyThread().start();  
         new MyThread().start();  
-        System.out.println("-----------------");
+        System.out.println("-----------------");*/
         MyRunnable my = new MyRunnable();  
         new Thread(my).start();  
         new Thread(my).start();  
