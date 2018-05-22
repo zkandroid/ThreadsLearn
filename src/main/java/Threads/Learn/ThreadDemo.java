@@ -33,15 +33,24 @@ class MyRunnable implements Runnable{
             {  
     			maptest.put(i, ":"+i);
                 if(ticket > 0){  
-                    System.out.println(Thread.currentThread().getName()+" Runnable ticket = " + ticket--);  
+                    System.out.println(Thread.currentThread().getName()+" Runnable ticket = " + ticket--); 
+                    //System.out.println(Thread.currentThread().getName()+ "fibonacci(10):."+fibonacci(10));
+                    Thread.yield();//调用的是对线程调度器的一种建议，它在声明：我已经执行完生命周期中的最重要的部分了，此时是切换给其它任务执行一段时间的大好时机
                 }  
             }  
 		}
         
-    }  
+    }
+    public int fibonacci(int n) {
+    	if(n == 0 || n ==1) {
+    		return 1;
+    	}
+		return n+fibonacci(n-1)+fibonacci(n-2);
+	}
 }  
   
 public class ThreadDemo{  
+<<<<<<< HEAD
 	
 	
     public static void main(String[] args){
@@ -50,9 +59,18 @@ public class ThreadDemo{
         new MyThread().start();  
         new MyThread().start();  
         System.out.println("-----------------");*/
+=======
+    public static void main(String[] args){  
+       // new MyThread().start();  
+        //new MyThread().start();  
+        //new MyThread().start();  
+        //System.out.println("-----------------");
+>>>>>>> 829e79faab2768f9633e2878b10586a4ee43bfed
         MyRunnable my = new MyRunnable();  
         new Thread(my).start();  
         new Thread(my).start();  
-        new Thread(my).start();
+       // new Thread(my).start();
     }  
+    
+    
 }  
