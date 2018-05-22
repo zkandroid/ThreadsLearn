@@ -50,22 +50,13 @@ class MyRunnable implements Runnable{
 }  
   
 public class ThreadDemo{  
-<<<<<<< HEAD
-	
-	
+		
     public static void main(String[] args){
     	/*
         new MyThread().start();  
         new MyThread().start();  
         new MyThread().start();  
         System.out.println("-----------------");*/
-=======
-    public static void main(String[] args){  
-       // new MyThread().start();  
-        //new MyThread().start();  
-        //new MyThread().start();  
-        //System.out.println("-----------------");
->>>>>>> 829e79faab2768f9633e2878b10586a4ee43bfed
         MyRunnable my = new MyRunnable();  
         new Thread(my).start();  
         new Thread(my).start();  
