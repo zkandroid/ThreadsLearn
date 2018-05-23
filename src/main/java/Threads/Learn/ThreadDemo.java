@@ -24,6 +24,18 @@ class MyThread extends Thread{
     }  
 }  
 
+class MyThreadSys extends Thread{  
+    private int ticket = 5;  
+    synchronized public void run(){  
+        for (int i=0;i<10;i++)  
+        {  
+            if(ticket > 0){  
+                System.out.println(Thread.currentThread().getName()+" ticket = " + ticket--);  
+            }  
+        }  
+    }  
+}  
+
 class MyRunnable implements Runnable{  
     private int ticket = 5;  
     private  static Map<Integer, String> maptest = new HashMap<Integer, String>();
@@ -52,14 +64,28 @@ class MyRunnable implements Runnable{
 public class ThreadDemo{  
 		
     public static void main(String[] args){
-    	/*
+    	/*//不共享数据
         new MyThread().start();  
         new MyThread().start();  
         new MyThread().start();  
         System.out.println("-----------------");*/
+    	/*//共享数据,不加锁
+    	MyThread A = new MyThread();
+    	Thread a1= new Thread(A, "a1");
+    	Thread a2 = new Thread(A,"a2");
+    	a1.start();
+    	a2.start();*/
+    	//共享数据，加锁
+    	MyThreadSys A = new MyThreadSys();
+    	Thread a1= new Thread(A, "a1");
+    	Thread a2 = new Thread(A,"a2");
+    	a1.start();
+    	a2.start();
+    	/*
         MyRunnable my = new MyRunnable();  
         new Thread(my).start();  
         new Thread(my).start();  
+        */
        // new Thread(my).start();
     }  
     
