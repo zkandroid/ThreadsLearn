@@ -72,6 +72,7 @@ public class test02 {
 			}
 		}
 	}
+	
 
 	public void add() {
 		synchronized(aList) {
