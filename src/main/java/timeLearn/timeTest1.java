@@ -12,6 +12,8 @@ public class timeTest1 {
 		//beforPlan();
 		//planAdd();
 		planAddCance();
+		
+		
 	}
 	
 	private static void isDaemon() throws InterruptedException {
