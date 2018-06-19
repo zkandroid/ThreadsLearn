@@ -1,5 +1,8 @@
 package Threads.Learn;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 并发编程的三个概念：原子性，可见性，有序性
  * volatile关键字能保证变量的可见性但是不能保证他的原子性，在一定程度上能保证他的有序性
@@ -15,9 +18,9 @@ package Threads.Learn;
 public class VolatileTest {
     public volatile int inc = 0;
     //public  int  inc =0;
-     
+     private volatile Map<Integer, String> map = new HashMap<Integer, String>();
     public void increase() {
-        inc++;
+        inc ++;
     }
      
     public static void main(String[] args) {

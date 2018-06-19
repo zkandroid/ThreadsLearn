@@ -28,7 +28,7 @@ public class Test01{
 		for(int i=0;i<1000;i++) {
 			new Thread(new Runnable(){
 				public void run() {
-					synchronized (h) {//对h加锁,保证h安全
+					//synchronized (h) {//对h加锁,保证h安全
 					h.put("test",1);
 					Integer i1 = h.get("test");
 					h.put("test",2);
@@ -40,7 +40,7 @@ public class Test01{
 		                    System.out.println(Thread.currentThread().getName() + " synchronized loop " + i);  
 		               }  
 					}*/
-				}
+				//}
 			}
 			}).start();
 		}
