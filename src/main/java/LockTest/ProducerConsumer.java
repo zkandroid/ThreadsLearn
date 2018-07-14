@@ -19,9 +19,10 @@ public class ProducerConsumer {
 		try {
 			lock.lock();
 			while(hasValue ==true) { 
+				System.out.println("0000000000000");
 				condition.await();
 			}
-			System.out.println("producer produce a value");
+			System.out.println("+++++++");
 			hasValue = true;
 			condition.signal();
 		} catch (Exception e) {
@@ -35,9 +36,10 @@ public class ProducerConsumer {
 		try {
 			lock.lock();
 			while(hasValue == false) {
+				System.out.println("1111111111");
 				condition.await();
 			}
-			System.out.println("consumer consum a value");
+			System.out.println("-------");
 			hasValue = false;
 			condition.signal();
 		} catch (Exception e) {

@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 /**
- * hashMap的效率最高,但是是非线程安全的,在put时可能会发生hash冲突,在扩容时可能会发生死循环,因为在多线程会产生冲突,所以在多线程情况下它的效率反而还没有ConcurrentHashMap
+ * hashMap的效率最高,但是是非线程安全的,在put时可能会发生hash值一样，然后又被放左了同一个位置,在扩容时可能会发生死循环,因为在多线程会产生冲突,所以在多线程情况下它的效率反而还没有ConcurrentHashMap
  * Hashtable synchronizedMap ConcurrentHashMap是线程安全的,其中ConcurrentHashMap效率最高,因为他只锁住了一部分
  * 但是,如果写线程大于读线程,最好别用
  * {@link https://yemengying.com/2016/05/07/threadsafe-hashmap/}

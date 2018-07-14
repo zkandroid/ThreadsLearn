@@ -1,5 +1,5 @@
 package ThreadGroupLearn;
-//线程组的作用主要是可以批量的管理线程
+//线程组的作用主要是可以批量的管理线程，
 public class ThreadGroupTest {
 	public static void main(String [] args) throws InterruptedException {
 		ThreadA a= new ThreadA();
